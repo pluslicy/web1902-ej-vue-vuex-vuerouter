@@ -15,19 +15,19 @@
               <span slot="title">首页大屏</span>
             </el-menu-item>
             <el-menu-item index="/category">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-s-order"></i>
               <span slot="title">栏目管理</span>
             </el-menu-item>
             <el-menu-item index="/product">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-s-shop"></i>
               <span slot="title">产品管理</span>
             </el-menu-item>
             <el-menu-item index="/customer">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-s-custom"></i>
               <span slot="title">顾客管理</span>
             </el-menu-item>
             <el-menu-item index="/check">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-message-solid"></i>
               <span slot="title">审核大厅</span>
             </el-menu-item>
           </el-menu>
