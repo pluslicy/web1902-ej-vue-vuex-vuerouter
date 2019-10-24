@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <el-row>
-      <el-col :span="5">
+    <div class="container">
+      <div class="left-nav">
+        <div class="title"> <i class="el-icon-upload logo"></i> 家政服务平台</div>
         <div id="nav" >
           <el-menu 
-            background-color="#545c64"
+            background-color="#242939"
             text-color="#fff"
-            active-text-color="teal"
+            active-text-color="#5d78ff"
             :router="true" 
             default-active="2" class="el-menu-vertical-demo" >
             <el-menu-item index="/">
               <i class="el-icon-menu"></i>
-              <span slot="title">首页</span>
+              <span slot="title">首页大屏</span>
             </el-menu-item>
             <el-menu-item index="/category">
               <i class="el-icon-menu"></i>
@@ -31,19 +32,22 @@
             </el-menu-item>
           </el-menu>
         </div>
-      </el-col>
-      <el-col :span="19">
+      </div>
+      <div class="right-content">
         <div class="content">
           <router-view/>
         </div>
-      </el-col>
+      </div>
     
-    </el-row>
+    </div>
   </div>
 </template>
 
 <style>
-body,ul,ol {
+html {
+  font: normal 12px 'Microsoft Yahei,微软雅黑'
+}
+body,ul,ol,h1,h2,h3 {
   margin: 0;
   padding: 0;
 }
@@ -57,16 +61,43 @@ body,ul,ol {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+.container {
+  height: 100%;
+  display: flex;
+}
+.container > .left-nav {
+  width: 200px;
+  background-color: #242939;
+}
+.container > .left-nav .title {
+  line-height: 2.5em;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+.logo {
+  color: #536be2;
+  font-size: 18px;
+}
 
+#nav {
+  margin-right: -1px;
+}
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.container > .right-content {
+  flex:1;
+  background-color: #f1f2f7;
+  padding: .5em;
+  overflow-y: scroll;
 }
 .content {
-  padding:.5em ;
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: .5em;
+  min-height: 400px;
 }
 </style>
