@@ -8,7 +8,6 @@
 		</div>
 		<!-- 表格 -->
 		<div>
-      {{ids}}
       <el-table :data="customers" size="mini"  @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="id" label="编号"></el-table-column>
@@ -18,7 +17,8 @@
         <el-table-column label="操作">
           <template #default="record">
               <i class="el-icon-delete" href="" @click.prevent="deleteHandler(record.row.id)"></i> &nbsp;
-							<i class="el-icon-edit-outline" href="" @click.prevent="editHandler(record.row)"></i>
+							<i class="el-icon-edit-outline" href="" @click.prevent="editHandler(record.row)"></i> &nbsp;
+              <a href="" @click.prevent="toDetailsHandler(record.row)">详情</a>
           </template>
         </el-table-column>
       </el-table>
@@ -70,6 +70,14 @@ export default {
     ...mapMutations("customer",["showModal","closeModal","setTitle"]),
     ...mapActions("customer",["findAllCustomers","saveOrUpdateCustomer","deleteCustomerById","batchDeleteCustomer"]),
     // 普通方法
+    toDetailsHandler(customer){
+      //跳转到详情页面
+      // this.$router.push("/customerDetails")
+      this.$router.push({
+        path:"/customerDetails",
+        query:{id:customer.id}
+      })
+    },
     handleSelectionChange(val) {
       this.ids = val.map(item=>item.id);
     },

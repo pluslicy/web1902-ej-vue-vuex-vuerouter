@@ -5,6 +5,10 @@ import Category from '../pages/Category'
 import Customer from '../pages/Customer'
 import Product from '../pages/Product'
 import Order from '../pages/Order'
+import CustomerDetails from '../pages/CustomerDetails'
+import Check from '../pages/check/Index'
+import WaiterCheck from '../pages/check/WaiterCheck'
+import WithdrawCheck from '../pages/check/WithdrawCheck'
 
 Vue.use(VueRouter)
 
@@ -23,12 +27,26 @@ const routes = [
     component:Customer
   },
   {
+    path:'/customerDetails',
+    component:CustomerDetails
+  },
+  {
     path:'/product',
     component:Product
   },
   {
     path:'/order',
     component:Order
+  },{
+    path:'/check',
+    component:Check,
+    children:[{
+      path:'waiter_check',
+      component:WaiterCheck
+    },{
+      path:'withdraw_check',
+      component:WithdrawCheck
+    }]
   }
 ]
 
